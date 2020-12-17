@@ -2,6 +2,14 @@ import {h} from 'preact'
 import {Link} from 'preact-router/match'
 import ReactMarkdown from 'react-markdown'
 
+import {
+  compressToEncodedURIComponent as encode,
+  decompressFromEncodedURIComponent as decode
+} from 'lz-string'
+
+const noop = _ => null
+const ident = _ => _
+
 const previewContorls = content => (
   <header><nav>
     <ul>
@@ -13,12 +21,6 @@ const previewContorls = content => (
       </Link></li>
     </ul>
   </nav></header>)
-
-const noop = _ => null
-const ident = _ => _
-
-const decode = x => decodeURIComponent(atob(x))
-const encode = x => btoa(encodeURIComponent(x))
 
 const Post = ({mode, payload, setMarkdown}) => {
   const [controls, decodeFn, encodeFn] = {
