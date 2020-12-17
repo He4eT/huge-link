@@ -1,5 +1,6 @@
 import {h} from 'preact'
 import {Link} from 'preact-router/match'
+import ReactMarkdown from 'react-markdown'
 
 const emptyControls = null
 const previewContorls = 'controls placeholder'
@@ -21,7 +22,9 @@ const Post = ({mode, payload, setMarkdown}) => {
       { controls }
 
       <article>
-        { markdown }
+        <ReactMarkdown>
+          { markdown }
+        </ReactMarkdown>
       </article>
 
       <Link href='/'>
