@@ -2,24 +2,37 @@ import {h} from 'preact'
 import {Link} from 'preact-router/match'
 import ReactMarkdown from 'react-markdown'
 
-const emptyControls = null
-const previewContorls = 'controls placeholder'
+const previewContorls = content => (
+  <header><nav>
+    <ul>
+      <li><Link href='/'>
+        Edit
+      </Link></li>
+      <li><Link href={ `/p/${content}` }>
+        Publish
+      </Link></li>
+    </ul>
+  </nav></header>)
 
-const noop = _ => _
-const decode = noop
+const noop = _ => null
+const ident = _ => _
+
+const decode = x => decodeURIComponent(atob(x))
+const encode = x => btoa(encodeURIComponent(x))
 
 const Post = ({mode, payload, setMarkdown}) => {
-  const [controls, decodeFn] = {
-    preview: [previewContorls, noop],
-    post: [emptyControls, decode]
+  const [controls, decodeFn, encodeFn] = {
+    preview: [previewContorls, ident, encode],
+    post: [noop, decode, ident]
   }[mode]
 
   const markdown = decodeFn(payload)
+  const encoded = encodeFn(payload)
 
   setMarkdown(markdown)
 
   return (<section>
-      { controls }
+      { controls(encoded) }
 
       <article>
         <ReactMarkdown>
