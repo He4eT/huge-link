@@ -14,16 +14,16 @@ const App = () => {
   return (<main>
     <Router>
       <Editor
-        path='/'
+        path='/huge-link/'
         markdown={ markdown }
         { ...{setMarkdown} } />
       <Post
-        path='/preview/'
+        path='/huge-link/preview/'
         mode='preview'
         payload={ markdown }
         { ...{setMarkdown} } />
       <Post
-        path='/p/:payload'
+        path='/huge-link/p/:payload'
         mode='post'
         { ...{setMarkdown} } />
     </Router>
