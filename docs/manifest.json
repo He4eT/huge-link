@@ -1,0 +1,10 @@
+{
+  "name": "huge-link",
+  "short_name": "huge-link",
+  "start_url": "/huge-link/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#fff",
+  "theme_color": "#333333"
+}
+
