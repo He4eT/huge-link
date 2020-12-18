@@ -19,7 +19,7 @@ const Editor = ({markdown, setMarkdown}) => (
     </textarea>
 
     <nav>
-      <Link href='/preview'>
+      <Link href='/huge-link/preview'>
         Preview
       </Link>
     </nav>

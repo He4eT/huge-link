@@ -13,10 +13,10 @@ const ident = _ => _
 const previewContorls = content => (
   <header><nav>
     <ul>
-      <li><Link href='/'>
+      <li><Link href='/huge-link/'>
         Edit
       </Link></li>
-      <li><Link href={ `/p/${content}` }>
+      <li><Link href={ `/huge-link/p/${content}` }>
         Publish
       </Link></li>
     </ul>
@@ -42,7 +42,7 @@ const Post = ({mode, payload, setMarkdown}) => {
         </ReactMarkdown>
       </article>
 
-      <Link href='/'>
+      <Link href='/huge-link/'>
         Edit post
       </Link>
     </section>)
